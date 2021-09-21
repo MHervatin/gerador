@@ -9,7 +9,11 @@ function geraStringAleatoria(tamanho) {
 
 const express = require('express');
 const server = express();
-server.listen(8001);
+
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, () => {
+    console.log('App deployed at port ${PORT}')
+});
 
 server.get("/gerar/:id", (req, resp) => {
     const {id} = req.params;
